@@ -1,0 +1,42 @@
+<head>
+	<title>Project Waco 0.4</title>
+</head>
+
+<body>
+	<h1>Welcome to Project Waco!</h1>
+
+	{{#if clicked}}
+		{{> scanning}}
+	{{else}}
+		{{> hello}}
+	{{/if}}
+
+</body>
+
+<template name="hello">
+
+	<h2> Fufill a Client Request </h2>  
+
+	<p> Place Distributed ID in Clear View for Capture </p>    
+
+	<button type = "button"> Capture </button>
+
+	<p> Distributed ID: {{receive_code}} {{send_code}} {{TemplateVar.get "id"}}</p>
+
+</template>
+
+<template name = "scanning">
+
+	<h2> Fufill a Client Request </h2>  
+
+	<p> Place Distributed ID in Clear View for Capture </p>    
+
+	<button type = "button"> Stop Scanning </button>
+    
+	{{> qrScanner}}
+
+        {{check}}
+
+</template>
+
+
