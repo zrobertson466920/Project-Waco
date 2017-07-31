@@ -2,7 +2,7 @@
 
 A Decentralized Identification System for Distribution of Welfare Services
 
-Project Waco is an improvement on traditional government identification systems. It is a decentralized and autonomous ledger system inteded to allow for imporved distribution of welfare services in devloping nations. Users provide a ration card and proof of identity such as a QR code or a Biometric. The information is compared with a decentralized file on the Interplanetary File System (IPFS). If a match is found, the data is returned and used to connect to a smart contract that holds a link to a client's informaton. 
+Project Waco is an improvement on traditional government identification systems. It is a decentralized and autonomous ledger system intended to allow for improved distribution of welfare services in developing nations. Users provide a ration card and proof of identity such as a QR code or a Biometric. The information is compared with a decentralized file on the Interplanetary File System (IPFS). If a match is found, the data is returned and used to connect to a smart contract that holds a link to a client's information. 
 
 ## Getting Started
 
@@ -10,7 +10,7 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Prerequisites
 
-This project uses Meteor to host and run the interface, IPFS to store files, and Metamask to inject Web3 which allows interaction with smart contracts. We'll need all three softwares to launch the dApp.
+This project uses Meteor to host and run the interface, IPFS to store files, and Metamask to inject Web3 which allows interaction with smart contracts. We'll need all three software to launch the dApp.
 
 ### Installing
 
@@ -31,7 +31,7 @@ Go ahead and start a local host by going into the project directory and running 
 ```
 meteor Project-Waco
 ```
-Next open up a IPFS daemon using the following configurations
+Next, open up an IPFS daemon using the following configurations
 
 ```
 ipfs config --json API.HTTPHeaders.Access-Control-Allow-Origin '["http://localhost:3000", "http://localhost:5001"]'
@@ -43,7 +43,7 @@ ipfs daemon
 ```
 Before uploading anything to the IPFS, we need a smart contract address to point to. Take the clientcontrol.sol file and go to * [Remix](https://remix.ethereum.org) and upload the contract. Make sure to set the environment to injected web3.
 
-You might notice that the contract has a string field. This is where you can upload a hash of identity information kept on IPFS. Go ahead and upload relevant identity information to IPFS and then use the hash with the contract. Wait for it to process and copy down the address field after checking Metamask. Upload the address to IPFS as well and write down the hash. This hash then needs to be converted to a QR code for proccessing by our dApp. Once that is done, go back to the now running dApp and click on the highlighted capture field. Your computer will ask for webcam permissions and then begin scanning for the QR code. Once the QR code is found, it'll be converted to a hash which will access the address of the smart contract which can access the id hash. 
+You might notice that the contract has a string field. This is where you can upload a hash of identity information kept on IPFS. Go ahead and upload relevant identity information to IPFS and then use the hash with the contract. Wait for it to process and copy down the address field after checking Metamask. Upload the address to IPFS as well and write down the hash. This hash then needs to be converted to a QR code for processing by our dApp. Once that is done, go back to the now running dApp and click on the highlighted capture field. Your computer will ask for webcam permissions and then begin scanning for the QR code. Once the QR code is found, it'll be converted to a hash which will access the address of the smart contract which can access the id hash. 
 
 ## Built With
 
