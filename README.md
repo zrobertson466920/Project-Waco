@@ -1,88 +1,63 @@
 # Project-Waco
+
 A Decentralized Identification System for Distribution of Welfare Services
 
-One Paragraph of project description goes here
+Project Waco is an improvement on traditional government identification systems. It is a decentralized and autonomous ledger system inteded to allow for imporved distribution of welfare services in devloping nations. Users provide a ration card and proof of identity such as a QR code or a Biometric. The information is compared with a decentralized file on the Interplanetary File System (IPFS). If a match is found, the data is returned and used to connect to a smart contract that holds a link to a client's informaton. 
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. 
 
 ### Prerequisites
 
-What things you need to install the software and how to install them
-
-```
-Give examples
-```
+This project uses Meteor to host and run the interface, IPFS to store files, and Metamask to inject Web3 which allows interaction with smart contracts. We'll need all three softwares to launch the dApp.
 
 ### Installing
 
-A step by step series of examples that tell you have to get a development env running
-
-Say what the step will be
+To install Meteor open up terminal and enter the following command.
 
 ```
-Give the example
+curl https://install.meteor.com/ | sh
 ```
 
-And repeat
+Next, we need to install IPFS. Go to the * [host website](https://ipfs.io/docs/install/) and follow the instructions. 
+
+Metamask has a * [chrome plugin](https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn?hl=en) so we can download it easily. Once Metamask is installed, make sure to transfer ether to upload contracts. 
+
+## How to Use
+
+Go ahead and start a local host by going into the project directory and running the following command and following the link.
 
 ```
-until finished
+meteor Project-Waco
 ```
-
-End with an example of getting some data out of the system or using it for a little demo
-
-## Running the tests
-
-Explain how to run the automated tests for this system
-
-### Break down into end to end tests
-
-Explain what these tests test and why
+Next open up a IPFS daemon using the following configurations
 
 ```
-Give an example
+ipfs config --json API.HTTPHeaders.Access-Control-Allow-Origin '["http://localhost:3000", "http://localhost:5001"]'
+ipfs config --json API.HTTPHeaders.Access-Control-Allow-Methods '["PUT", "GET", "POST"]'
+ipfs config --json API.HTTPHeaders.Access-Control-Allow-Credentials '["true"]'
+ipfs daemon
+// You can reset this configuration afterwards using:
+// ipfs config --json API.HTTPHeaders {}
 ```
+Before uploading anything to the IPFS, we need a smart contract address to point to. Take the clientcontrol.sol file and go to * [Remix](https://remix.ethereum.org) and upload the contract. Make sure to set the environment to injected web3.
 
-### And coding style tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-## Deployment
-
-Add additional notes about how to deploy this on a live system
+You might notice that the contract has a string field. This is where you can upload a hash of identity information kept on IPFS. Go ahead and upload relevant identity information to IPFS and then use the hash with the contract. Wait for it to process and copy down the address field after checking Metamask. Upload the address to IPFS as well and write down the hash. This hash then needs to be converted to a QR code for proccessing by our dApp. Once that is done, go back to the now running dApp and click on the highlighted capture field. Your computer will ask for webcam permissions and then begin scanning for the QR code. Once the QR code is found, it'll be converted to a hash which will access the address of the smart contract which can access the id hash. 
 
 ## Built With
 
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
-
-## Contributing
-
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
-
-## Versioning
-
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
+* [IPFS](https://ipfs.io/) - The decentralized file storing system used
+* [Meteor](https://www.meteor.com/) - The web framework utilized
+* [Hitchcott](https://github.com/hitchcott/meteor-qr-code-scanner) - Javascript QR code reader
+* [Web3](http://web3js.readthedocs.io/en/1.0/web3-eth.html) - Allows for communication with Ethereum Network
+* [Metamask](https://metamask.io/) - Web3 injector
+* [Ethereum Project](https://www.ethereum.org/) - Hosting network for the smart contract
 
 ## Authors
 
-* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
-
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
+* **Zachary W. Robertson** - [LinkedIn](https://www.linkedin.com/in/zachary-robertson-1286ba120/)
 
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
-
-## Acknowledgments
-
-* Hat tip to anyone who's code was used
-* Inspiration
-* etc
