@@ -20,9 +20,9 @@ To install Meteor open up terminal and enter the following command.
 curl https://install.meteor.com/ | sh
 ```
 
-Next, we need to install IPFS. Go to the * [host website](https://ipfs.io/docs/install/) and follow the instructions. 
+Next, we need to install IPFS. Go to the [host website](https://ipfs.io/docs/install/) and follow the instructions. 
 
-Metamask has a * [chrome plugin](https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn?hl=en) so we can download it easily. Once Metamask is installed, make sure to transfer ether to upload contracts. 
+Metamask has a [chrome plugin](https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn?hl=en) so we can download it easily. Once Metamask is installed, make sure to transfer ether to upload contracts. 
 
 ## How to Use
 
@@ -41,7 +41,7 @@ ipfs daemon
 // You can reset this configuration afterwards using:
 // ipfs config --json API.HTTPHeaders {}
 ```
-Before uploading anything to the IPFS, we need a smart contract address to point to. Take the clientcontrol.sol file and go to * [Remix](https://remix.ethereum.org) and upload the contract. Make sure to set the environment to injected web3.
+Before uploading anything to the IPFS, we need a smart contract address to point to. Take the clientcontrol.sol file and go to [Remix](https://remix.ethereum.org) and upload the contract. Make sure to set the environment to injected web3.
 
 You might notice that the contract has a string field. This is where you can upload a hash of identity information kept on IPFS. Go ahead and upload relevant identity information to IPFS and then use the hash with the contract. Wait for it to process and copy down the address field after checking Metamask. Upload the address to IPFS as well and write down the hash. This hash then needs to be converted to a QR code for processing by our dApp. Once that is done, go back to the now running dApp and click on the highlighted capture field. Your computer will ask for webcam permissions and then begin scanning for the QR code. Once the QR code is found, it'll be converted to a hash which will access the address of the smart contract which can access the id hash. 
 
