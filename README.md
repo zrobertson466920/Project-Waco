@@ -1,6 +1,6 @@
 # Project-Waco
 
-A Decentralized Identification System for Distribution of Welfare Services (See Demo [here](https://www.youtube.com/watch?v=tp9SP4xqD-c))
+A Decentralized Identification System for Distribution of Welfare Services (See demo [here](https://www.youtube.com/watch?v=tp9SP4xqD-c))
 
 Project Waco is an improvement on traditional government identification systems. It is a decentralized and autonomous ledger system intended to allow for improved distribution of welfare services in developing nations. Users provide a ration card and proof of identity such as a QR code or a Biometric. The information is compared with a decentralized file on the Interplanetary File System (IPFS). If a match is found, the data is returned and used to connect to a smart contract that holds a link to a client's information. 
 
